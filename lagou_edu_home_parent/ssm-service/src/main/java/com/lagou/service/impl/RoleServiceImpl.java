@@ -28,6 +28,8 @@ public class RoleServiceImpl implements RoleService {
     public void saveRole(Role role) {
         //补齐信息
         Date date=new Date();
+        role.setCreatedBy("system");
+        role.setUpdatedBy("system");
         role.setCreatedTime(date);
         role.setUpdatedTime(date);
 
@@ -39,7 +41,8 @@ public class RoleServiceImpl implements RoleService {
     public void updateRole(Role role) {
         Date date=new Date();
         role.setUpdatedTime(date);
-
+        role.setUpdatedBy("system");
+        
         roleMapper.updateRole(role);
 
     }

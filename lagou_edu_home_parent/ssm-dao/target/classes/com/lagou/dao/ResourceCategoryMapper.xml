@@ -6,7 +6,7 @@
      <!--查询所有资源分类-->
     <select id="findAllResourceCateGory"  resultType="ResourceCategory">
         select * from resource_category;
-    </select>
+</select>
 
     <!--增加资源分类信息-->
     <insert id="saveResourceCateGory" parameterType="ResourceCateGory">

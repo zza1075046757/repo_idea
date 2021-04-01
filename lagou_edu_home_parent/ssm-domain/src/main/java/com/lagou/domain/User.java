@@ -26,10 +26,28 @@ public class User {
     private String status;
     // 是否删除
     private Integer is_del;
-    // 创建时间
-    private Date create_time;
+
+    private Date createTime;
     // 更新时间
-    private Date update_time;
+    private Date updateTime;
+
+
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
 
     public Integer getId() {
         return id;
@@ -119,22 +137,6 @@ public class User {
         this.is_del = is_del;
     }
 
-    public Date getCreate_time() {
-        return create_time;
-    }
-
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
-    }
-
-    public Date getUpdate_time() {
-        return update_time;
-    }
-
-    public void setUpdate_time(Date update_time) {
-        this.update_time = update_time;
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -149,8 +151,8 @@ public class User {
                 ", account_non_locked=" + account_non_locked +
                 ", status='" + status + '\'' +
                 ", is_del=" + is_del +
-                ", create_time=" + create_time +
-                ", update_time=" + update_time +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
                 '}';
     }
 }

@@ -74,7 +74,7 @@ rm.`role_id`LEFT JOIN menu m ON rm.`menu_id` = m.`id` WHERE r.id = #{id}
           where r.id=#{id}
     </select>
 
-    <!--查询资源分类表的具体资源-->
+    <!--查询资源表的具体资源-->
         <select id="findResourceById" parameterType="int" resultType="Resource">
              select r.* from
           resource r inner join resource_category rc

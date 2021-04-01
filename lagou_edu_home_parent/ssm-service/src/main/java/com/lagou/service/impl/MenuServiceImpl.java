@@ -1,7 +1,11 @@
 package com.lagou.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lagou.dao.MenuMapper;
 import com.lagou.domain.Menu;
+import com.lagou.domain.MenuVO;
+import com.lagou.domain.User;
 import com.lagou.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,8 +26,14 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
-    public List<Menu> findAllMenu() {
-        return menuMapper.findAllMenu();
+    public PageInfo findAllMenu(MenuVO menuVO) {
+
+        //使用PageHelper
+        PageHelper.startPage(menuVO.getCurrentPage(), menuVO.getPageSize());
+        List<Menu> allMenu = menuMapper.findAllMenu(menuVO);
+
+        PageInfo<Menu> pageInfo = new PageInfo<>(allMenu);
+        return pageInfo;
     }
 
     @Override
@@ -33,7 +43,11 @@ public class MenuServiceImpl implements MenuService {
 
     @Override
     public void saveMenu(Menu menu) {
-         //前台传递时已补齐信息
+        Date date=new Date();
+        menu.setCreatedTime(date);
+        menu.setUpdatedTime(date);
+        menu.setCreatedBy("system");
+        menu.setUpdatedBy("system");
         menuMapper.saveMenu(menu);
 
     }

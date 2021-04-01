@@ -82,6 +82,7 @@ public class PromotionAdController {
         if (promotionAd.getId() != null) {
             promotionAdService.updatePromotionAd(promotionAd);
         } else {
+            System.out.println(promotionAd);
             promotionAdService.savePromotionAd(promotionAd);
         }
         return new ResponseResult(true, 200, "响应成功", null);

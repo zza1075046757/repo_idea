@@ -28,7 +28,7 @@
     </resultMap>
 
     <!--查询所有菜单信息-->
-    <select id="findAllMenu" resultType="Menu">
+    <select id="findAllMenu" parameterType="MenuVO" resultType="Menu">
         select * from menu
     </select>
 
@@ -39,8 +39,7 @@
 
     <!--增加菜单-->
     <insert id="saveMenu" parameterType="Menu">
-        insert into menuvalues
-        (null,#{parentId},#{href},#{icon},#{name},#{description},#{orderNum},#{shown}
+        insert into menu values (null,#{parentId},#{href},#{icon},#{name},#{description},#{orderNum},#{shown}
         ,#{level},#{createdTime},#{updatedTime},#{createdBy},#{updatedBy})
     </insert>
 

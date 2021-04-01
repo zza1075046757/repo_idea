@@ -23,8 +23,12 @@ public class PromotionAd {
     private String link;
     // 开始时间
 
+
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date startTime;
     // 结束时间
+
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date endTime;
     private Date createTime;
     private Date updateTime;
